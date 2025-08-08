@@ -581,7 +581,7 @@ class DateUtil:
             "weeks",
             "years",
         ] = "seconds",
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[Union[float, int], timedelta]:
         """
         Calculates the difference between two dates.
@@ -598,6 +598,11 @@ class DateUtil:
 
         :raises DateArithmeticError: If the end date is before the start date.
         """
+
+        # Check if the end date is provided
+        if not end:
+            # If the end date is not provided, set it to the current date and time.
+            end = cls.now()
 
         # Check if the end date is before the start date
         if end < start:
@@ -648,7 +653,7 @@ class DateUtil:
     def calculate_difference_in_days(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in days.
@@ -675,7 +680,7 @@ class DateUtil:
     def calculate_difference_in_hours(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in hours.
@@ -702,7 +707,7 @@ class DateUtil:
     def calculate_difference_in_milliseconds(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in milliseconds.
@@ -729,7 +734,7 @@ class DateUtil:
     def calculate_difference_in_minutes(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in minutes.
@@ -756,7 +761,7 @@ class DateUtil:
     def calculate_difference_in_months(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in months.
@@ -783,7 +788,7 @@ class DateUtil:
     def calculate_difference_in_seconds(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in seconds.
@@ -810,7 +815,7 @@ class DateUtil:
     def calculate_difference_in_weeks(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in weeks.
@@ -837,7 +842,7 @@ class DateUtil:
     def calculate_difference_in_years(
         cls,
         start: datetime,
-        end: datetime = datetime.now(),
+        end: Optional[datetime] = None,
     ) -> Union[float, int, timedelta]:
         """
         Calculates the difference between two dates in years.
