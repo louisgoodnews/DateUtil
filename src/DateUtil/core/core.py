@@ -899,6 +899,54 @@ class DateUtil:
         return cls.now().day
 
     @classmethod
+    def day_after_tomorrow(cls) -> datetime:
+        """
+        Returns the date of the day after tomorrow with the time set to midnight.
+
+        :return: The date of the day after tomorrow as a datetime object with time set to midnight.
+        :rtype: datetime
+        """
+
+        # This method returns the date of the day after tomorrow with the time set to midnight.
+        return cls.tomorrow() + timedelta(days=1)
+
+    @classmethod
+    def day_before_yesterday(cls) -> datetime:
+        """
+        Returns the date of the day before yesterday with the time set to midnight.
+
+        :return: The date of the day before yesterday as a datetime object with time set to midnight.
+        :rtype: datetime
+        """
+
+        # This method returns the date of the day before yesterday with the time set to midnight.
+        return cls.today() - timedelta(days=2)
+
+    @classmethod
+    def day_of_week(cls) -> int:
+        """
+        Returns the current day of the week.
+
+        :return: The current day of the week as an integer (0-6).
+        :rtype: int
+        """
+
+        # This method returns the current day of the week as an integer.
+        return cls.now().weekday()
+
+    @classmethod
+    def day_of_year(cls) -> int:
+        """
+        Returns the current day of the year.
+
+        :return: The current day of the year as an integer (1-366).
+        :rtype: int
+        """
+
+        # This method returns the current day of the year as an integer.
+        return cls.now().timetuple().tm_yday
+
+    @classmethod
     def days_in_month(
         cls,
         month: int,
