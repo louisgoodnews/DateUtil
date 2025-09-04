@@ -1282,6 +1282,33 @@ class DateUtil:
             return False
 
     @classmethod
+    def is_valid_iso_format(
+        cls,
+        date_str: str,
+    ) -> bool:
+        """
+        Checks if a given date string is in a valid ISO 8601 format.
+
+        :param date_str: The date string to check.
+        :type date_str: str
+
+        :return: True if the date string is in a valid format, False otherwise.
+        :rtype: bool
+
+        :raises InvalidDateFormatError: If the date string is not in the expected format.
+        """
+
+        try:
+            # Attempt to construct a datetime object from the passed string
+            datetime.fromisoformat(date_str)
+
+            # Return True if conscrution succeeds
+            return True
+        except InvalidDateFormatError:
+            # Return False on failure of construction
+            return False
+
+    @classmethod
     def is_yesterday(cls, date: datetime) -> bool:
         """
         Checks if a given date is yesterday.
