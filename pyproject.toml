@@ -3,7 +3,7 @@ requires = ["setuptools>=42"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "DateUtil"
+name = "dateutil"
 version = "0.1.0"
 description = "Utility library for common datetime operations"
 readme = "README.md"
